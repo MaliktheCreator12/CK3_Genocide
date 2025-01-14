@@ -1,0 +1,32 @@
+# Exiled Trait
+
+exiled = {
+    picture = GFX_trait_exiled # Image for the trait, if any (can be a custom image)
+    is_hidden = no # Whether the trait is visible in the game interface
+    icon = "gfx/interface/icons/traits/exiled.dds" # Custom icon path for the trait
+    
+    # Description of the trait
+    desc = "exiled_trait_desc"
+    
+    # Trait Type - This will determine where the trait appears (in character, dynasty, etc.)
+    type = character
+    
+    # Trait Gained Description
+    gain_desc = "exiled_trait_gain_desc"
+    
+    # Trait Lost Description
+    lose_desc = "exiled_trait_lose_desc"
+    
+    # Trait Effects
+    effects = {
+        opinion = {
+            modifier = {
+                from = exiled # Modify opinion from those who are exiled
+                to = all
+                value = -20 # People dislike being around an exile
+            }
+        }
+        
+        health = -0.1 # Exile can affect health (or any other modifier)
+    }
+}

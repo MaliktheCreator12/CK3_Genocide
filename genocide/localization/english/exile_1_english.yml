@@ -1,0 +1,4 @@
+l_english:
+  exiled_trait_desc: "This character has been exiled from their home, living far away from their former lands."
+  exiled_trait_gain_desc: "This character has become an exile, forced to leave their home."
+  exiled_trait_lose_desc: "This character is no longer an exile, having returned to their home."

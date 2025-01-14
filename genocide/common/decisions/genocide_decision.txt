@@ -1,0 +1,77 @@
+# genocide_decisions.txt
+
+initiate_genocide = {
+    id = initiate_genocide_decision
+    picture = "gfx/interface/decision_icons/genocide_icon.dds"
+
+    potential = {
+        is_ruler = yes
+        has_culture_group = { culture_group = eastern_european }  # Example: target cultures within a specific culture group
+        OR = {
+            has_religion = { religion = christian }
+            has_religion = { religion = muslim }
+        }
+        NOT = { has_global_flag = genocide_in_progress }
+    }
+
+    allow = {
+        prestige = 300  # Must have at least 300 prestige
+        piety = 100     # Must have at least 100 piety
+        target = {
+            is_own_realm = yes
+            has_culture_group = { culture_group = eastern_european }  # Target a specific culture or religion
+        }
+    }
+
+    effect = {
+        # Example effect: Mass killing, forced exile, conversion
+        every_character_in_realm = {
+            if = {
+                limit = { culture = <target_culture> }  # Replace with the targeted culture ID
+                remove_trait = "cultural_heritage_<target_culture>"  # Remove cultural traits
+                kill = 1  # Mass executions
+            }
+        every_character_in_realm = {
+    if = {
+        limit = { culture = <target_culture> }
+        move_character = {
+            target_province = random_province
+			}
+		}
+	}
+}		
+
+		every_character_in_realm = {
+    if = {
+        limit = { culture = <target_culture> }
+		add_trait = "exiled"	# Apply a trait like 'exiled'
+        add_opinion = {
+            who = character_scope
+            value = -30
+        }
+    }
+}
+
+        every_province_in_realm = {
+            if = {
+                limit = { has_culture = <target_culture> }
+                set_culture = <new_culture>  # Change the culture of all affected provinces
+            }
+        }
+
+        # Reputation consequences
+        prestige = -200
+        piety = -100
+        add_opinion = {
+            who = character_scope
+            value = -50
+        }
+
+        # Flag to prevent multiple genocides at once
+        set_global_flag = genocide_in_progress
+    }
+
+    ai_will_do = {
+        factor = 0  # AI should not use this decision (can be adjusted)
+    }
+}

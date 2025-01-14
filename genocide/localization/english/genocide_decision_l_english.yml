@@ -1,0 +1,4 @@
+l_english:
+  genocide_decision_desc: "This decision allows you to initiate a genocide against a particular culture or religion within your realm. Be prepared for significant consequences in terms of piety, prestige, and diplomatic relations."
+  genocide_decision: "Initiate Genocide"
+  genocide_decision_description: "Declare war on a specific culture or religious group, with the goal of eradicating them from your realm. This will cause mass executions, forced conversions, and reputational damage."
